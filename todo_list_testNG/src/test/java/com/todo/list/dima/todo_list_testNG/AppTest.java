@@ -3,6 +3,8 @@ package com.todo.list.dima.todo_list_testNG;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import rest.RestClient;
+
 public class AppTest {
 	
 	//private String SERVER_JAR_PATH = "C:/Users/Admin/Desktop/Dima/run_server_sim.jar";
@@ -17,8 +19,9 @@ public class AppTest {
 	*/
 	
 	@Test(groups = {"e2e"})
-    public void createTaskAndGetListE2E() {
-    	
+    public void createTaskAndGetListE2E() throws Exception {
+    	RestClient client = new RestClient();
+    	client.getAllTasks();
     }
 	
 	/*
