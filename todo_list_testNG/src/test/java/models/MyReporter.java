@@ -10,7 +10,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.apache.commons.lang3.StringUtils;
 
-public class Reporter implements ITestListener{
+public class MyReporter implements ITestListener{
 
 	private File reportFile;
 	private String filePath;
