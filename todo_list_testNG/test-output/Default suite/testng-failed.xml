@@ -5,8 +5,10 @@
     <classes>
       <class name="com.todo.list.dima.todo_list_testNG.AppTest">
         <methods>
+          <include name="handleTestMethodName"/>
           <include name="setUp"/>
           <include name="createTaskAndGetListE2E"/>
+          <include name="testSetUp"/>
         </methods>
       </class> <!-- com.todo.list.dima.todo_list_testNG.AppTest -->
     </classes>

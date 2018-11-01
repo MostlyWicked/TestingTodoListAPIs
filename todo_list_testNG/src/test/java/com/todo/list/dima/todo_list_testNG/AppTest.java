@@ -1,21 +1,14 @@
-package com.todo.list.dima.todo_list_testNG;
-
+package com.todo.list.dima.todo_list_testNG;
 import java.lang.reflect.Method;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import models.MyReporter;
-import models.Task;
+import org.testng.annotations.BeforeMethod;import org.testng.annotations.BeforeSuite;import org.testng.annotations.BeforeTest;import org.testng.annotations.Listeners;import org.testng.annotations.Test;import models.Task;
 import models.TodoList;
 import rest.TodoListRestClient;
-
+@Listeners({com.todo.list.dima.todo_list_testNG.MyListener.class})
+@Test
 public class AppTest {
 	TodoListRestClient client;
-	MyReporter report;
+	TestReporter report = TestReporter.getInstance();
 	String testname;
 	
 	@BeforeMethod
@@ -29,12 +22,10 @@ public class AppTest {
 		report.setTestname(testname);
 	}
 	
-	@BeforeClass
+	@BeforeSuite
 	public void setUp() throws Exception{
 		client = new TodoListRestClient();
-		report = new MyReporter();
 	}
-	
 	
 	@Test(groups = {"e2e"})
     public void createTaskAndGetListE2E() throws Exception {
@@ -45,9 +36,4 @@ public class AppTest {
     		report.report("Task description: " + task.getDescription());
     	}
     } 
-	
-	@AfterClass
-	public void cleanUp() {
-	}
-	
 }
