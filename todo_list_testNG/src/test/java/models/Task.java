@@ -6,13 +6,6 @@ public class Task {
 	private String description;
 	private String completion;
 	
-	public Task(int id, String title, String description, String completion) {
-		this.id = id;
-		this.title = title;
-		this.description = description;
-		this.completion = completion;
-	}
-	
 	public int getId() {
 		return id;
 	}

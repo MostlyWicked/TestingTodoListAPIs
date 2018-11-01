@@ -6,7 +6,7 @@
       <class name="com.todo.list.dima.todo_list_testNG.AppTest">
         <methods>
           <include name="setUp"/>
-          <include name="test2"/>
+          <include name="createTaskAndGetListE2E"/>
         </methods>
       </class> <!-- com.todo.list.dima.todo_list_testNG.AppTest -->
     </classes>

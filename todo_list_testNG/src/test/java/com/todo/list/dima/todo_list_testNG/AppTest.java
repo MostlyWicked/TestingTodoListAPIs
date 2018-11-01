@@ -1,33 +1,41 @@
 package com.todo.list.dima.todo_list_testNG;
 
-import org.testng.Assert;
-import org.testng.annotations.*;
-
-import rest.RestClient;
-
 public class AppTest {
+	TodoListRestClient client;
+	MyReporter report;
+	String testname;
 	
-	//private String SERVER_JAR_PATH = "C:/Users/Admin/Desktop/Dima/run_server_sim.jar";
+	@BeforeMethod
+    public void handleTestMethodName(Method method)
+    {
+        testname = method.getName(); 
+        tjuhf gj fhgj fhgjfghjgfhj 
+    }
 	
-	Process serverProcess;
+	@BeforeTest
+	public void testSetUp() {
+		report.setTestname(testname);
+	}
 	
-	/*
 	@BeforeClass
 	public void setUp() throws Exception{
-		//serverProcess = Runtime.getRuntime().exec(new String[]{"java", "-jar", SERVER_JAR_PATH});
+		client = new TodoListRestClient();
+		report = new Reporter();
 	}
-	*/
+	
 	
 	@Test(groups = {"e2e"})
     public void createTaskAndGetListE2E() throws Exception {
-    	RestClient client = new RestClient();
-    	client.getAllTasks();
-    }
+    	TodoList list = client.getAllTasks();
+    	Task[] tasks = list.getTasks();
+    	for(Task task : tasks) {
+    		report.report("Task title: " + task.getTitle());
+    		report.report("Task description: " + task.getDescription());
+    	}
+    } 
 	
-	/*
 	@AfterClass
 	public void cleanUp() {
-		//serverProcess.destroy();
 	}
-	*/
+	
 }
